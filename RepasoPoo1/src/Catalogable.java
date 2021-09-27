@@ -4,4 +4,5 @@ public interface Catalogable {
 	public int getCupo();
 	public int getEdadMin();
 	public int getAlturaMin();
+	public void restarCupo();
 }

@@ -5,11 +5,28 @@ public class Visitante {
 	private int edad;
 	private int altura;
 	
+	public Visitante(String nombre, double presupuesto, int edad, int altura) {
+		this.nombre = nombre;
+		this.dinero = presupuesto;
+		this.edad = edad;
+		this.altura = altura;
+	}
+	
+	public double getDinero() {
+		return this.dinero;
+	}
+	
 	public void reservar(Catalogable aReservar) {
-		// TODO: implementar
+		this.dinero -= aReservar.getPrecio();
+		// agregar a misReservas
+		aReservar.restarCupo();
 	}
 	
 	public boolean puedeReservar(Catalogable aReservar) {
-		// TODO: implementar
+		if(aReservar == null) return false;
+		
+		return dinero >= aReservar.getPrecio() 
+				&& altura >= aReservar.getAlturaMin()
+				&& edad >= aReservar.getEdadMin();
 	}
 }
